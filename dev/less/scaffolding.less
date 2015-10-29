@@ -1,0 +1,164 @@
+// 1/5's Columns:
+//----------------------------------------------------
+
+.col-lg-2-4{
+  .make-lg-column(2.4)
+}
+.col-md-2-4{
+  .make-md-column(2.4)
+}
+.col-sm-2-4{
+  .make-sm-column(2.4)
+}
+
+
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.row.top-gutter  {
+
+	& > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-top:10px;
+    padding-bottom:10px;
+		}
+}
+
+// gestalt colored areas
+.caution {
+  background-color:rgba(244, 233, 25,.4);
+}
+
+.gestalt-0 {
+	background-color:rgba(0,0,0,.125);
+}
+
+.gestalt-1 {
+ background-color:darken(#fafcfc,15%);
+}
+
+.gestalt_2 {
+	background-color:#dddddd;
+}
+
+.gestalt-3 {
+ 
+ background-color:fade(darken(@body-bg,25%),20%);
+}
+
+.gestalt-4 {
+background-color:fade(#000000,70%);
+color:#ffffff;
+}
+
+.gestalt_5 {
+ background-color:@brand-primary;
+ color:@grayLighter;
+}
+
+.gestalt_6 {
+	background-color:#444444;
+}
+
+
+.gestalt_7 {
+	border:1px solid #c0c0c0;
+}
+
+
+.helps {
+	color:fade(#ff0000,70);
+}
+
+
+.dots {
+		background-image: url("/assets/img/bg_333976.png");
+    background-repeat: repeat-x repeat-y;
+}
+
+
+
+
+ul.main-side-menu {
+
+    list-style-type: none;
+    padding: 0px;
+    margin:  0px 0px 0px 5px;
+		//text-transform: uppercase;
+		
+		.menu-section {
+			border-bottom:1px dotted fade(@text-color,20%);
+			padding-bottom:10px;
+			
+			.sub-menu {
+				font-size:12px;
+				line-height:150%;
+				font-weight:300;
+			}
+			
+			.sub-menu::before {
+			    content: "-";
+			    margin-right: 0px;
+			    font-size: 120%;
+					font-weight:100;
+			    padding: 3px 5px;
+			}
+			
+		}
+		
+		
+}
+
+.sideMenu {
+  margin:0;
+	float:left;
+	width:16.66666667%;
+	max-width:230px;
+	padding:0 10px 0 10px;
+}
+
+.container-fluid	{ padding: 0 5px 0 5px;}
+
+
+.navbar  { 
+
+
+
+.panel-default {border:none; margin:0;}
+.panel-group {margin:0px 0 0 0;}
+.panel-group .panel+.panel { margin:0px 0 0 0; }
+
+.panel {
+
+	background-color:fade(#000000,0%);
+	.panel-body {padding:15px 0 15px 0;}
+	color:#ffffff;
+	a {
+		color:#ff0000;
+	}
+	
+}
+
+}
+
+.bgWrapper {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+}
+
+container-left {
+
+	margin:0;
+
+}

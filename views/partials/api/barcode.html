@@ -1,0 +1,587 @@
+<div class="row">
+	<div class="col-sm-5">
+		
+		    <div id="HeaderContent">
+		            <div id="ProjectTitle"><!--DXMETADATA start type="ProjectTitle" -->Accusoft Cloud Services<!--DXMETADATA end--></div>
+		    </div>
+		  
+		
+		
+		
+		    <div id="BodyContent">
+		        <!--DXMETADATA start type="TopicSection" name="BodyText"--><article>
+		    <h3 id="barcode-reading"><a aria-hidden="true" href="#barcode-reading" name="user-content-barcode-reading"></a>Barcode Reading</h3>
+
+		    <p>The barcode reading API allows you to easily recognize multiple barcodes in an image.</p>
+
+		    <blockquote>
+		        <p><em>Note for Accusoft Cloud Services users:</em><br>
+		        Use the host <code>https://api.accusoft.com</code>.<br>
+		        All requests must <a href="Authenticating Requests.html">include an <code>acs-api-key</code> request header</a> with your ACS API key.</p>
+		
+						<div class="gestalt-0 panel panel-body" ng-if="loggedIn" ng-include="'/views/partials/portal/apikey.html'"></div>
+		
+		
+		    </blockquote>
+
+		    <h2 id="post-v1barcodereaderstypestypesregionregion"><a aria-hidden="true" href="#post-v1barcodereaderstypestypesregionregion" name="user-content-post-v1barcodereaderstypestypesregionregion"></a><a name="post-read"></a>POST /v1/barcodeReaders?types={types}&amp;region={region}</h2>
+
+		    <p>Reads barcodes within an image, returning their location, dimensions, and data values.</p>
+
+		    <h3 id="request-headers"><a aria-hidden="true" href="#request-headers" name="user-content-request-headers"></a>Request Headers</h3>
+
+		    <table>
+		        <thead>
+		            <tr>
+		                <th>Name</th>
+
+		                <th>Value</th>
+
+		                <th>Details</th>
+		            </tr>
+		        </thead>
+
+		        <tbody>
+		            <tr>
+		                <td><code>Content-Type</code></td>
+
+		                <td>
+		                    <p>If provided, must be one of the following:</p>
+
+		                    <ul>
+		                        <li><code>application/octet-stream</code></li>
+
+		                        <li><code>image/jpeg</code></li>
+
+		                        <li><code>image/bmp</code></li>
+
+		                        <li><code>image/png</code></li>
+
+		                        <li><code>image/tiff</code></li>
+
+		                        <li><code>image/gif</code></li>
+		                    </ul>
+		                </td>
+
+		                <td><em>optional</em></td>
+		            </tr>
+
+		            <tr>
+		                <td><code>Accept</code></td>
+
+		                <td>If provided, must be <code>application/json</code>.</td>
+
+		                <td><em>optional</em></td>
+		            </tr>
+		        </tbody>
+		    </table>
+
+		    <h3 id="query-parameters"><a aria-hidden="true" href="#query-parameters" name="user-content-query-parameters"></a>Query Parameters</h3>
+
+		    <table>
+		        <thead>
+		            <tr>
+		                <th>Name</th>
+
+		                <th>Description</th>
+
+		                <th>Details</th>
+		            </tr>
+		        </thead>
+
+		        <tbody>
+		            <tr>
+		                <td><code>types</code></td>
+
+		                <td>
+		                    <p>An optional, comma-separated list of <a href="#user-content-readable-barcode-types">readable barcode types</a> that should be decoded if they are found in the image. Restricting the types of barcodes reduces processing time and can also reduce the occurrence of false positive results.</p>
+
+		                    <p>Default is <code>all1D</code>.</p>
+		                </td>
+
+		                <td><em>optional</em></td>
+		            </tr>
+
+		            <tr>
+		                <td><code>region</code></td>
+
+		                <td>
+		                    <p>An optional, comma-separated list of four positive integer values that describe a rectangular region in the image that will be searched for barcodes. The first value is the X coordinate of the top left corner of the region. The second value is the Y coordinate of the top left corner of the region. The third value is the width of the region. The fourth value is the height of the region.</p>
+
+		                    <p>If unspecified, the entire image will be searched for barcodes.</p>
+		                </td>
+
+		                <td><em>optional</em></td>
+		            </tr>
+		        </tbody>
+		    </table>
+
+		    <h3 id="request-body"><a aria-hidden="true" href="#request-body" name="user-content-request-body"></a>Request Body</h3>
+
+		    <p>A PNG, GIF, JPEG, TIFF, or BMP image (binary data) which you want to search for barcodes.</p>
+
+		    <p>If a multi-page TIFF, only the first page will be used.</p>
+
+		    <h3 id="example-requests"><a aria-hidden="true" href="#example-requests" name="user-content-example-requests"></a>Example Requests</h3>
+
+		    <p>Find all 1D barcodes in an image:</p>
+		    <pre>POST http://api.accusoft.com/v1/barcodeReaders?apikey={{apikey}}
+		(body contains binary image data)
+		</pre>
+
+		    <p>Find only UPC-A and UPC-E barcodes in an image:</p>
+		    <pre>POST https://api.accusoft.com/v1/barcodeReaders?types=upca,upce&amp;region=20,10,10,10
+		(body contains binary image data)
+		</pre>
+
+		    <p>Find a QR code in an image:</p>
+		    <pre>POST https://api.accusoft.com/v1/barcodeReaders?types=qr
+		(body contains binary image data)
+		</pre>
+
+		    <h3 id="response-body"><a aria-hidden="true" href="#response-body" name="user-content-response-body"></a>Response Body</h3>
+
+		    <p>A successful response will return JSON which contains:</p>
+
+		    <ol>
+		        <li>An <code>input</code> object specifying the inputs used.</li>
+
+		        <li>An <code>output</code> object which contains an array of results, one for each barcode.</li>
+		    </ol>
+
+		    <p>Here is an example:</p>
+		    <pre>200 OK
+		Content-Type: application/json
+		{
+		    "input": {
+		        "types": "all1D"
+		    },
+		    "output": {
+		        "results": [ 
+		            {
+		                "value": "697929110035",
+		                "binaryValue": "Njk3OTI5MTEwMDM1",
+		                "confidence": 95,
+		                "type": "upca",
+		                "boundingPoints": [
+		                    {"x": 20, "y": 10},
+		                    {"x": 30, "y": 10},
+		                    {"x": 30, "y": 20},
+		                    {"x": 20, "y": 20} 
+		                ]
+		            }
+		        ]
+		    }
+		}
+		</pre>
+
+		    <h4 id="output-details"><a aria-hidden="true" href="#output-details" name="user-content-output-details"></a>Output Details</h4>
+
+		    <table>
+		        <thead>
+		            <tr>
+		                <th>Name</th>
+
+		                <th>Description</th>
+
+		                <th>Details</th>
+		            </tr>
+		        </thead>
+
+		        <tbody>
+		            <tr>
+		                <td><code>output.results</code></td>
+
+		                <td>An array of objects, one for each barcode detected in the image.</td>
+
+		                <td>array</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].value</code></td>
+
+		                <td>The text value of the barcode if it can be represented as a UTF-8 string. Otherwise, this property will not be present.</td>
+
+		                <td>string, <strong>may not be present</strong></td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].binaryValue</code></td>
+
+		                <td>The binary value of the barcode expressed as a base-64 encoded value. This property will always be present.</td>
+
+		                <td>string, base-64 encoded binary value</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].confidence</code></td>
+
+		                <td>A value between 0 and 100 indicating how confident we are in the accuracy of the data for this barcode result. A value of 100 is the best possible confidence.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].type</code></td>
+
+		                <td>The <a href="#user-content-readable-barcode-types">type of barcode</a> that was detected.</td>
+
+		                <td>string</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints</code></td>
+
+		                <td>An array of four objects which specify the bounding points of the recognized barcode in the image. The first point will always be the top-left corner of the barcode regardless of its orientation, and the remaining points are always specified in clockwise order from the first point.</td>
+
+		                <td>array</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[0].x</code></td>
+
+		                <td>Top-left x-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[0].y</code></td>
+
+		                <td>Top-left y-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[1].x</code></td>
+
+		                <td>Top-right x-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[1].y</code></td>
+
+		                <td>Top-right y-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[2].x</code></td>
+
+		                <td>Bottom-right x-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[2].y</code></td>
+
+		                <td>Bottom-right y-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[3].x</code></td>
+
+		                <td>Bottom-left x-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>output.results[n].boundingPoints[3].y</code></td>
+
+		                <td>Bottom-left y-coordinate of the barcode in the image.</td>
+
+		                <td>integer</td>
+		            </tr>
+		        </tbody>
+		    </table>
+
+		    <h3 id="http-status-codes"><a aria-hidden="true" href="#http-status-codes" name="user-content-http-status-codes"></a>HTTP Status Codes</h3>
+
+		    <ul>
+		        <li><code>200 OK</code> - The image was scanned for barcodes and the results were returned.</li>
+
+		        <li><code>405 Method Not Allowed</code> - POST was not used.</li>
+
+		        <li><code>480</code> - Something was wrong with the request input. Check the response body for details.</li>
+		    </ul>
+
+		    <h3 id="appendix"><a aria-hidden="true" href="#appendix" name="user-content-appendix"></a>Appendix</h3>
+
+		    <h4 id="readable-barcode-types"><a aria-hidden="true" href="#readable-barcode-types" name="user-content-readable-barcode-types"></a>Readable Barcode Types</h4>
+
+		    <table>
+		        <thead>
+		            <tr>
+		                <th>Type</th>
+
+		                <th>Description</th>
+		            </tr>
+		        </thead>
+
+		        <tbody>
+		            <tr>
+		                <td><code>all1D</code></td>
+
+		                <td>
+		                    <p>All supported 1D barcodes. Specifically:</p>
+
+		                    <ul>
+		                        <li><code>industry2of5</code></li>
+
+		                        <li><code>interleaved2of5</code></li>
+
+		                        <li><code>iata2of5</code></li>
+
+		                        <li><code>dataLogic2of5</code></li>
+
+		                        <li><code>inverted2of5</code></li>
+
+		                        <li><code>bcdMatrix</code></li>
+
+		                        <li><code>matrix2of5</code></li>
+
+		                        <li><code>code39</code></li>
+
+		                        <li><code>codabar</code></li>
+
+		                        <li><code>code128</code></li>
+
+		                        <li><code>code93</code></li>
+
+		                        <li><code>ean8</code></li>
+
+		                        <li><code>ean13</code></li>
+
+		                        <li><code>upca</code></li>
+
+		                        <li><code>upde</code></li>
+
+		                        <li><code>add5</code></li>
+
+		                        <li><code>add2</code></li>
+
+		                        <li><code>ean128</code></li>
+		                    </ul>
+		                </td>
+		            </tr>
+
+		            <tr>
+		                <td><code>add2</code></td>
+
+		                <td>Add 2</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>add5</code></td>
+
+		                <td>Add 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>australianPost</code></td>
+
+		                <td>Australian Post 4-state</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>aztec</code></td>
+
+		                <td>Aztec</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>bcdMatrix</code></td>
+
+		                <td>BCD Matrix</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>code32</code></td>
+
+		                <td>Code 32</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>code39</code></td>
+
+		                <td>Code 39</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>code39Extended</code></td>
+
+		                <td>Code 39 Extended</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>codabar</code></td>
+
+		                <td>Codabar</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>code93</code></td>
+
+		                <td>Code 93</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>code93Extended</code></td>
+
+		                <td>Code 93 Extended</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>code128</code></td>
+
+		                <td>Code 128</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>datalogic2of5</code></td>
+
+		                <td>Datalogic 2 of 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>dataMatrix</code></td>
+
+		                <td>Data Matrix</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>ean13</code></td>
+
+		                <td>EAN-13</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>ean8</code></td>
+
+		                <td>EAN-8</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>ean128</code></td>
+
+		                <td>GS1-128 (formerly named UCC/EAN-128)</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>gs1DataBar</code></td>
+
+		                <td>GS1 DataBar</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>industry2of5</code></td>
+
+		                <td>Industry 2 of 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>interleaved2of5</code></td>
+
+		                <td>Interleaved 2 of 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>iata2of5</code></td>
+
+		                <td>IATA 2 of 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>inverted2of5</code></td>
+
+		                <td>Inverted 2 of 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>intelligentMail</code></td>
+
+		                <td>Intelligent Mail, also known as the USPS OneCode Solution or UPS 4-State Customer Barcode (abbreviated 4CB, 4-CB, or USPS4CB).</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>matrix2of5</code></td>
+
+		                <td>Matrix 2 of 5</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>patchCode</code></td>
+
+		                <td>Patch Code</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>postnet</code></td>
+
+		                <td>PostNet, previously used by the USPS. Replaced by the Intelligent Mail barcode.</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>pdf417</code></td>
+
+		                <td>PDF417</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>qr</code></td>
+
+		                <td>QR Code</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>royalMail</code></td>
+
+		                <td>Royal Mail 4-State Customer Code (RM4SCC)</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>upca</code></td>
+
+		                <td>UPC-A</td>
+		            </tr>
+
+		            <tr>
+		                <td><code>upce</code></td>
+
+		                <td>UPC-E</td>
+		            </tr>
+		        </tbody>
+		    </table>
+		</article><!--DXMETADATA end-->
+		            <a name="seealsobookmark"></a>
+		            <!--DXMETADATA start type="FilteredItemList" scrap="CATEGORISED_LINKS" namespace="linkcategory" source="Item" filter="" NoHeader="True" NoFooter="True" format="%%replaceinquotes:value=false%%%%scrap:name=_COLLAPSIBLE_HEADER,idprefix=seealso,caption=""%%phrase:name=SeeAlso%%%%designlist:tagidentifier=seealso,itemtype=See Also%%""%%%%filtereditemlist%%</div>"--><div class="SectionHeading" id="seealsoSectionHeading"><span class="SectionHeadingIcon"><!-- --></span><span class="SectionHeadingText">See Also</span></div><div id="seealsoSectionContent" class="SectionContent"><h4 class="SeeAlsoSubHeading">Concepts</h4><div class="SeeAlsoLink">
+		<a href="Supported Barcode Types.html">Barcode Types Supported</a></div>
+
+		</div><!--DXMETADATA end-->
+
+		    </div>
+		    <div id="FooterContent">
+		        <!--DXMETADATA start type="Scrap" condition="communityenabled" name="_COMMUNITY_FOOTER" --><!--DXMETADATA end -->
+		<!--DXMETADATA start type="Variable" name="CopyrightNotice" format="<p>&nbsp;</p><p>&nbsp;</p><hr style=""height: 1px"" /><p>%%variable%%</p>" --><p>&nbsp;</p><p>&nbsp;</p><hr style="height: 1px"><p>©2015. <a href="http://www.accusoft.com" target="_blank">Accusoft Corporation</a>. All Rights Reserved.</p><!--DXMETADATA end -->
+		<!--DXMETADATA start type="Variable" name="FeedbackLink" format="" --><a href="mailto:techwriting@accusoft.com?subject=Documentation Feedback: BarcodeReading.html">Send Feedback</a><!--DXMETADATA end-->
+		    </div>
+
+
+
+		<div id="lbOverlay" style="display: none;"></div><div id="lbCenter" style="display: none;"><div id="lbImage"><div style="position: relative;"><a id="lbPrevLink" href="#"></a><a id="lbNextLink" href="#"></a></div></div></div><div id="lbBottomContainer" style="display: none;"><div id="lbBottom"><a id="lbCloseLink" href="#"></a><div id="lbCaption"></div><div id="lbNumber"></div><div style="clear: both;"></div></div></div>
+		
+	</div>
+	<div class="col-sm-7 gestalt-4">
+
+		<h3>Sample projects</h3>
+
+	</div>
+</div>

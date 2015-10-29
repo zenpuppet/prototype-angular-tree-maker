@@ -1,0 +1,501 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- FONT KIT HANDDRAWN FONT -->
+
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="/assets/bo.css" />
+
+	</head>
+	<body class="dots">
+		
+		
+		<div class="container-fluid gestalt_4">
+			<div class="container">
+				<div class="row top-gutter">
+					<div class="col-sm-12">
+
+
+						<div>
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#accusoft-nav">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar accent-bg-blue"></span>
+											<span class="icon-bar accent-bg-orange"></span>
+											<span class="icon-bar accent-bg-faded-orange"></span>
+										</button>
+										<div class="navbar-brand">
+											<div class="row">
+												<div class="col-sm-10">
+													<a data-ga-category="Header Links" data-ga-label="company logo" class="" style="display: inline;" href="https://www.accusoft.com"><img src="https://www.accusoft.com/wp-content/themes/accusoft_tk-1.0/assets/images/accusoft_logo.png" width="200" height="46" alt="Accusoft"></a>
+												</div>
+												<!--<div class="col-sm-7">
+													<p class="text-uppercase" style="display: inline; letter-spacing: 1px; font-size: 70%; line-height: 35px;">Unparalleled Imaging Solutions</p>
+												</div>-->
+										    </div>
+										</div>
+									</div>
+						            <div id="accusoft-nav" class="collapse navbar-collapse header-logos">
+						                <ul class="nav navbar-nav navbar-right text-center">
+											<li class="products"><a data-ga-category="Header Links" data-ga-label="products" href="/products/"><i class="fa fa-2x siteicon-products_icon "></i><span class="small">products</span></a></li>
+						                    <li class="solutions"><a data-ga-category="Header Links" data-ga-label="solutions" href="/solutions/"><i class="fa fa-2x fa-cubes"></i><span class="small">solutions</span></a></li>
+						                    <li class="industries"><a data-ga-category="Header Links" data-ga-label="industries" href="/industry/"><i class="fa fa-2x fa-building"></i><span class="small">industries</span></a></li>
+						                    <li class="support"><a data-ga-category="Header Links" data-ga-label="support" href="/support/"><i class="fa fa-2x siteicon-support_icon"></i><span class="small">support</span></a></li>
+						                    <li class="login"><a data-ga-category="Header Links" data-ga-label="login" href="/client-login/"><i class="fa fa-2x fa-sign-in"></i><span class="small">login</span></a></li>
+						                    <li class="search"><a data-ga-category="Header Links" data-ga-label="search" href="#"><i class="fa fa-2x fa-search"></i><span class="small">search</span></a></li>
+						                </ul>
+						            </div>
+
+						    	</div>
+
+
+					</div><!-- close col-sm-12 -->
+				</div><!-- close row -->
+			</div>
+		</div>
+		
+		
+		<div class="container-fluid" ng-controller="MainController">
+					
+			<div class="row top-gutter">
+				<div class="col-sm-1">
+					
+						<div ng-include="'/views/menus/side-menu'"></div>
+
+				</div>
+				<div class="col-sm-3">
+					
+						<div ng-include="'/views/content/sample-help.html'"></div>
+			    	
+
+					
+				</div>
+				<div class="col-sm-8 gestalt_4 ">
+					
+						<div ng-include="'/views/content/sample-help.html'"></div>
+			    	
+
+					
+				</div>
+			</div><!-- END... row top-gutter -->
+
+			
+
+
+				<div class="row top-gutter buffer_top">
+					<div class="col-sm-12">
+
+				  <!-- Nav tabs -->
+				  <ul class="nav nav-tabs" role="tablist">
+					  <li role="presentation"  class="lead"><a href="#services" aria-controls="home" role="tab" data-toggle="tab">Services</a></li>
+					  <li role="presentation" class="lead"><a href="#pricing" aria-controls="home" role="tab" data-toggle="tab">Pricing</a></li>
+				  
+
+				    <li role="presentation" class="lead"><a href="#integrations" aria-controls="integrations" role="tab" data-toggle="tab">Plugins</a></li>
+				    <li role="presentation" class="lead"><a href="#code" aria-controls="code" role="tab" data-toggle="tab">Code Samples</a></li>
+				    <li role="presentation" class="lead"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab">Documentation</a></li>
+				    <li role="presentation" class="lead active"><a href="#workflow" aria-controls="workflow" role="tab" data-toggle="tab">Tools</a></li>
+
+				  </ul><!-- close nav nav-tabs buffer_top -->
+
+				  <!-- Tab panes -->
+				  <div class="tab-content">
+
+				    <div role="tabpanel" class="tab-pane" id="services">
+				    	<div ng-include="'/views/services/services.html'"></div>
+				    </div>
+
+				    <div role="tabpanel" class="tab-pane" id="pricing">
+				    	<div ng-include="'/views/services/pricing.html'"></div>
+				    </div>
+					
+				    <div role="tabpanel" class="tab-pane" id="home">
+				    	<div ng-include="'/views/planinfo.html'"></div>
+				    </div>
+				
+				    <div role="tabpanel" class="tab-pane" id="api">
+				    	<div ng-include="'/views/apikey.html'"></div>
+				    </div>
+				
+				    <div role="tabpanel" class="tab-pane" id="services">
+							<div ng-include="'/views/services/services.html'"></div>
+				    </div>
+				
+				    <div role="tabpanel" class="tab-pane" id="code">
+				    	<div ng-include="'/views/services/code.html'"></div>
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="integrations"><div ng-include="'/views/services/integrations.html'"></div></div>
+				    <div role="tabpanel" class="tab-pane" id="documentation">
+				    		<a target="_blank" href="http://help.accusoft.com/SAAS/pcc-for-acs/webframe.html#Starting%20the%20Workflow%20Process.html" class="btn btn-default btn-lg" >how to use workflows in your code</a>
+							</p>
+
+							<a class="btn btn-default btn-lg" href="http://help.accusoft.com/SAAS/pcc-for-acs/webframe.html#Workflow%20API%20Engine.html">Workflow API</a>
+				    </div>
+				    <div role="tabpanel" class="tab-pane active" id="workflow">
+					
+							<div class="row">
+								<div class="col-sm-12">
+
+									<div class="row no-gutter">
+
+										<div ng-include="'/views/convert/add_button'"></div>
+										<div ng-include="'/views/convert/add_button'"></div>
+										<div ng-include="'/views/convert/add_button'"></div>
+										<div ng-include="'/views/convert/add_button'"></div>
+										<div ng-include="'/views/convert/add_button'"></div>
+
+
+									</div>
+
+
+								</div>
+							</div>
+					
+					
+				    	<div ng-include="'/views/workflowtools'"></div>
+				    </div>
+
+
+
+				  </div><!-- close tab-content -->
+					</div><!-- close col-sm-12  buffer_top -->
+				</div><!-- close row -->				
+				
+
+				
+			
+				
+				</div><!-- close container -->
+			
+			
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+			<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+		 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		  <!-- script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script -->
+		
+		<script>
+		
+		var config = {
+		
+			api_key:"KjrogwRukueJ69gDHdwsu5JNO1DuYB7k"
+			
+		}
+		
+		
+		
+		
+		var app = angular.module("demo",[])
+		.controller("MainController",function($scope,$http) {
+			
+			$scope.bit = false;
+			
+			$scope.items = [{name: 'one', age: 30 },{ name: 'two', age: 27 },{ name: 'three', age: 50 }];
+			
+			$scope.appConfig = {
+				compressFileTypes:[
+				    { label: 'jpg', value: 1 },
+				    { label: 'gif', value: 2 },
+				    { label: 'png', value: 3 }
+				  ],
+				compressionTypes:[
+				  { label: 'SEQUENTIAL', value: 1 },
+			    { label: 'PROGRESSIVE', value: 2 },
+			    { label: 'LOSSLESS', value: 3 }
+				],
+				qualityFactors:[
+				  { label: 'Highest quality', value: 100 },
+			    { label: 'High quality', value: 50 },
+			    { label: 'Medium quality', value: 25 },
+			    { label: 'Low quality', value: 10 },
+			    { label: 'Lowest quality', value: 11 }
+				],
+				convertFileFromTypes:[
+						{ label: 'jpg', value: 1 },
+					  { label: 'gif', value: 2 },
+					  { label: 'png', value: 3 },
+				    { label: 'bmp', value: 4 },
+				    { label: 'tiff', value: 5 },
+				    { label: 'image', value: 6 },
+				    { label: 'Workfile', value: 7 },
+				    { label: 'Microsoft 	Word DOC', value: 8 },
+				    { label: 'Document', value: 9 },
+				    { label: 'PDF', value: 10 }
+				  ],
+				convertFileToTypes:[
+						{ label: 'jpg', value: 1 },
+					  { label: 'png', value: 3 },
+				    { label: 'tiff', value: 5 },
+				    { label: 'PDF', value: 10 },
+				    { label: 'SVG', value: 11 }
+				  ],
+				multiPageOutputOption:[
+			  { label: 'I only want the first page. Treat file as a single page file.', value: 1 },
+				{ label: 'I want all pages', value: 3 }	
+			
+				],
+				ocrFromTypes:[
+						{ label: 'jpg', value: 1 },
+					  { label: 'png', value: 3 },
+				    { label: 'bmp', value: 4 },
+				    { label: 'tiff', value: 5 },
+				],
+				ocrOutputTypes:[
+						{ label: 'PDF', value: 10 },
+					  { label: 'Text', value: 12 }
+				],
+				watermarkFileFromTypes:[
+						{ label: 'jpg', value: 1 },
+					  { label: 'gif', value: 2 },
+					  { label: 'png', value: 3 },
+				    { label: 'bmp', value: 4 },
+				    { label: 'tiff', value: 5 }
+				  ],
+				watermarkAngle:[
+									{ label: '0 degrees - horizontal', value: 1 },
+								  { label: '25 degrees - slight slant', value: 2 },
+								  { label: '45 degrees - even slant', value: 3 },
+							    { label: '70 degrees - big slant', value: 4 },
+							    { label: '90 degrees - up and down', value: 5 }
+							  ],
+				watermarkLocation:[
+									{ label: 'Top - Left', value: 1 },
+								  { label: 'Top - Middle', value: 2 },
+								  { label: 'Top - right', value: 3 },
+							    { label: 'Middle - Left', value: 4 },
+									{ label: 'Center of Page', value: 5 },
+							    { label: 'Middle - Right', value: 6 }
+							  ],
+				createBarcodeFromTypes:[
+					  { label: 'json', value: 13 }
+				],
+				createBarcodeOutputTypes:[
+							{ label: 'png', value: 3 }
+					  ],
+				readBarcodeFileFromTypes:[
+						{ label: 'jpg', value: 1 },
+					  { label: 'gif', value: 2 },
+					  { label: 'png', value: 3 },
+				    { label: 'bmp', value: 4 },
+				    { label: 'tiff', value: 5 }
+				  ],
+				readBarcodeOutputTypes:[
+							{ label: 'json', value: 13 }
+					  ],
+				readBarcodeTypes:[
+				  {label:'All 1D Barcodes', value:0},
+					{label:'QR Codes', value:11},			
+				  {label:'add2', value:1},
+					{label:'add5', value:2},
+					{label:'australianPost', value:3},
+					{label:'aztec', value:4},
+					{label:'bcdMatrix', value:5},
+					{label:'code32', value:6},
+					{label:'code39', value:7},
+					{label:'code39Extended', value:8},
+					{label:'codabar', value:9},
+					{label:'code93', value:10}
+				]
+			};
+			
+			$scope.workflows = [
+			
+			
+			];
+			
+			$scope.steps = [
+			//	{kind:"CONVERT",settings:{}},
+			//	{kind:"COMPRESS",settings:{} },
+			//	{kind:"OCR",settings:{} }
+			];
+			
+			$scope.addWorkflow = function(workflowName) {
+				
+				var rand = function() {
+				    return Math.random().toString(36).substr(2); // remove `0.`
+				};
+
+				var token = function() {
+				    return rand()+ rand() + rand(); // to make it longer
+				};
+
+				var hashString = token();
+				
+				var newSteps = $scope.steps.splice();
+				var newWorkFlow = {name:workflowName,steps:newSteps,hash:hashString};
+				$scope.workflows.push(newWorkFlow);
+				console.log($scope.workflows);
+				
+			}
+			
+				$scope.deleteWorkflow = function(index) {
+					$scope.workflows.splice(index,1);
+					$scope.steps.splice(0,$scope.steps.length);
+				}
+			
+			$scope.addStep = function(stepType) {
+				var previousOutput = {};
+				var firstPageOnly = $scope.appConfig.multiPageOutputOption[0];
+				
+				
+				if ($scope.steps.length > 0) {
+						$scope.steps[$scope.steps.length - 1].editState=false;
+						previousOutput = $scope.steps[$scope.steps.length - 1].fileTypeOut;
+				} else {
+					if ($scope.steps.length > 0) {
+						previousOutput = $scope.appConfig.convertFileFromTypes[0];
+					} else {
+						previousOutput = {};
+					}
+				}
+				
+				switch(stepType) {
+			    case "compress":
+			        var tempStep = {kind:stepType,fileType:previousOutput,fileTypeOut:{},compressMode:{},qualityFactor:{},outputVariableName:"compress2Output",editState:true};
+			        break;
+			    case "convert":
+			        var tempStep = {kind:stepType,fileType:previousOutput,fileTypeOut:{},outputKind:firstPageOnly,inputVariableName:"convert2Input",outputVariableName:"convert2Output",maxWidth:"0px",maxHeight:"0px",oneFilePerPage:true,editState:true}
+			        break;
+
+					case "ocr":
+					        var tempStep = {kind:stepType,fileType:previousOutput,fileTypeOut:{}, outputKind:firstPageOnly,inputVariableName:"convert2Input",outputVariableName:"convert2Output",editState:true}
+					        break;
+					case "watermark":
+					        var tempStep = {kind:stepType,fileType:previousOutput,fileTypeOut:{}, watermarkAngle:{}, watermarkText:'watermark', watermarkLocation:{}, inputVariableName:"convert2Input",outputVariableName:"convert2Output",editState:true}
+					        break;
+
+					case "createbarcode":
+					        var tempStep = {kind:stepType,fileType:{},fileTypeOut:{},inputVariableName:"barcode2Input",outputVariableName:"barcode2Output",editState:true};
+					        break;
+
+									case "readbarcode":
+									        var tempStep = {kind:stepType,fileType:previousOutput,fileTypeOut:{},inputVariableName:"barcode2Input",outputVariableName:"barcode2Output",editState:true};
+									        break;
+
+
+			    default: 
+							var tempStep = {kind:stepType,fileType:{},compressMode:{},qualityFactor:{},outputVariableName:"compress2Output",editState:true};
+				}
+				
+				
+				if ($scope.steps.length >0 && (stepType != "ocr" && stepType != "createbarcode")) {
+					$scope.setFileOutToFileIn(tempStep); 
+				}
+				$scope.steps.push(tempStep);
+				
+				
+				
+				console.log($scope.steps);
+			};
+			
+			$scope.editStep = function(index) {
+				$scope.steps[index].editState = !$scope.steps[index].editState;
+				console.log($scope.steps);
+			}
+			
+			$scope.deleteStep = function(index) {
+				$scope.steps.splice(index,1);
+			}
+
+			$scope.isEmptyObject = function(obj) {
+			    /* logic of your choosing here */
+					return angular.equals({}, obj);
+			};
+			
+			$scope.stepComplete = function(index) {
+				
+				var state = true;
+				if ($scope.steps.length > 0) {
+						Object.keys($scope.steps[index]).forEach(function(key) {
+							if ($scope.isEmptyObject($scope.steps[index][key])) {
+								state = false;
+							}
+						});
+					}
+					
+							console.log("returning " + state);
+							return state;	 
+				};
+				
+				
+				$scope.setFileOutToFileIn =function(step) {
+					step.fileTypeOut = step.fileType;
+					console.log($scope.steps.indexOf(step));
+				};
+		
+			
+			});
+		
+
+		
+		app.filter('ordinal',function(){
+			
+			return function(number){
+				if(isNaN(number) || number<1 ){
+					return number;
+				} else {
+					var lastDigit = number % 10;
+
+					      if(lastDigit === 1) {
+					        return number + 'st'
+					      } else if(lastDigit === 2) {
+					        return number + 'nd'
+					      } else if (lastDigit === 3) {
+					        return number + 'rd'
+					      } else if (lastDigit > 3) {
+					        return number + 'th'
+					      }
+				}
+			}
+			
+		});
+		
+		
+		app.filter("capitalize",function(){
+			
+			
+			return function(input,char){
+				
+				//char = the character position within the string
+				//input is the string
+				
+				if (isNaN(input)) {
+
+				      // If the input data is not a number, perform the operations to capitalize the correct letter.
+				      var char = char - 1 || 0;
+				      var letter = input.charAt(char).toUpperCase();
+				      var out = [];
+
+				      for (var i = 0; i < input.length; i++) {
+
+				        if (i == char) {
+				          out.push(letter);
+				        } else {
+				          out.push(input[i]);
+				        }
+
+				      }
+
+				      return out.join('');
+
+				    } else {
+				      return input;
+				    }
+
+				  }
+				
+			
+			
+		});
+		
+		
+		angular.bootstrap(document.body,["demo"])
+		
+		</script>
+		
+		
+	</body>
+</html>

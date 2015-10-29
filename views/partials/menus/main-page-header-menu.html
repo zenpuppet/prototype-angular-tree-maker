@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container container-left">
+			<div class="navbar-header">
+	        <a class="navbar-brand" ui-sref="#">accusoft - ux</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	        <li><a ui-sref="home">products</a></li>
+	        <li><a ui-sref="about">solutions</a></li>
+	    </ul>
+			<ul class="nav navbar-nav navbar-right">
+				
+	        
+					<li ng-if="loggedIn" class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">j.Messer <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Licenses & Keys</a></li>
+	            <li><a href="#">Payments</a></li>
+	            <li><a href="#">Usage</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#"  ng-click="loginLogout()">{{loginText}}</a></li>
+	          </ul>
+	        </li>
+	        
+	
+	
+	        <li ng-if="!loggedIn"><a ng-click="loginLogout()">{{loginText}}</a></li>
+	    </ul>
+	  </div>
+	
+	<div ng-if="loggedIn" ng-include="'/views/partials/portal.html'"></div>
+	
+</nav>

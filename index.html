@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- CSS (load bootstrap) -->
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" href="/assets/bo.css" />
+    <style>
+        .navbar { border-radius:0; }
+    </style>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+
+</head>
+
+<!-- apply our angular app to our site -->
+<body class="dots" ng-controller="mainController">
+
+	<div ng-include="'/views/partials/menus/main-page-header-menu.html'"></div>
+
+	<div class="container-fluid">
+
+	<script type="text/ng-template" id="menu_renderer.html">
+  
+	
+	  <li ng-class="(field.def.maincategory==true) ? 'menu-section' : 'sub-menu'">
+
+			<div ng-if="field.def.maincategory" data-tree-menu="true">
+				<h4>
+					<a ng-if="field.children == null" class="upper" ui-sref="{{field.state}}" aria-expanded="true" aria-controls="{{field.state}}">{{field.label}}</a>
+					<a ng-if="field.children != null" class="upper" ui-sref="{{field.state}}.index" aria-expanded="true" aria-controls="{{field.state}}">{{field.label}}</a>
+				</h4>
+			</div>
+	
+			<a ng-if="!field.def.maincategory && field.children == null" href="#" data-tree-menu="true" ui-sref="{{field.state}}" aria-expanded="true" aria-controls="{{field.state}}" >
+				{{field.label}}
+			</a>
+			<a ng-if="!field.def.maincategory && field.children != null" href="#" data-tree-menu="true" ui-sref="{{field.state}}.index" aria-expanded="true" aria-controls="{{field.state}}" >
+				{{field.label}}
+			</a>
+		
+	    <ul ng-class="(field.def.childrenCollapsed==false) ? 'in' : ''"  class="nav nav-stacked collapse main-side-menu " ng-if="field.children" id="{{field.state}}">
+				<li class="" ng-repeat="field in field.children" 
+		       ng-include="'menu_renderer.html'">
+		    </li>
+			</ul>
+		
+		</li>
+
+	</script>
+
+	<div class="container-fluid" >
+	
+
+	<div class="row ">
+	
+		<div class="col-sm-2 wrapper gestalt-1">
+			<ul class="main-side-menu">
+				<li ng-repeat="field in routes" ng-include="'menu_renderer.html'"></li>	
+			</ul><!-- close -->
+		
+		</div><!-- END.. close col-sm-2 -->
+	
+		<div class="col-sm-10">
+		  <div ui-view></div><!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+		</div><!-- END.... col-sm-4 -->
+	
+	</div><!-- close row -->
+
+
+
+
+	
+
+	
+	
+
+
+
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=js"></script>
+	<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	<script src="js/app.js"></script>
+
+
+	</body>
+</html>
